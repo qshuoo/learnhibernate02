@@ -22,3 +22,17 @@
 ### 添加映射路径
 
 ## 编写实体类
+
+## 编写映射配置文件(xx.hbm.xml)
+### 添加约束
+### 映射class
+### 配置唯一主键
+### 配置主键生成策略
+#### 自然主键
+* assigned 用户自助管理
+#### 代理主键
+* native 主键递增
+* identity 只支持主键可以递增的数据库
+* increment 先查找主键的最大值，再加1插入
+* sequence oracle支持
+* uuid varchar 随机
