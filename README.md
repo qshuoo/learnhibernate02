@@ -60,7 +60,7 @@
 * 游离状态(托管状态) 与session不关联，与oid关联
 
 
-### hibernate基本操作
+### hibernate 基本操作
 * save()
 * update()
 * saveOrUpdate()
@@ -75,4 +75,51 @@
 `	对持久对象使用save(),update(),saveOrUpdate()，不会产生作用`
 
 `	get为立即加载，load为延迟加载，返回的时代理对象，只有真正使用对象时，才会查询返回实际对象`
+
+
+### hibernate 查询
+#### 原生sql查询
+* 编写sql语句
+* 生成查询对象 session.getNativeQuery()
+* 设置参数setParameter()
+* 获取结果集list(),getResultList()
+* 获取唯一结果 uniqueResult()
+* 分页 setFirstResult(),setMaxResults()
+
+#### hql语句
+`面向对象的查询过程，根据类名查询，可移植性好`
+* 编写hql语句
+* 生成查询对象 session.getQuery()
+* 设置参数setParameter()
+* 获取结果集list(),getResultList()
+* 获取唯一结果 uniqueResult()
+* 分页 setFirstResult(),setMaxResults()
+
+#### criteria查询
+`比hql更加注重面向对象过程，不需要写查询语句`
+* 生成CriteriaBuilder对象 session.getCriteriaBuilder()
+* 生成CriteriaQuery查询对象 citeriaBuilder.createQuery()
+* 生成Root(得到类) criteriaQuery.from()
+* 生成Path(得到类中需要查询的属性) root.get()
+* 生成Predicate(得到查询条件) 
+
+	gt() 大于
+	lt() 小于
+	ge()  大于等于
+	le() 小于等于
+	equal() 等于
+	notEqual() 不等于
+	in()    在   范围内
+	between  A  and    B    输出A和B之间的内容，包括A 和B
+	like() 模糊匹配
+	notLike() 模糊匹配不上的内容
+	isNull()
+	isNotNull()
+	and
+	or
+	
+* 选择查询的列criteiaQuery.select(path)	
+* 通过条件查询criteriaQuery.where()
+* session.createQuery(criteriaQuery)
+
 
