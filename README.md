@@ -16,11 +16,11 @@
 * 方言
 
 ### 其他配置
-* 自动创建或更新表
-	create 创建表，创建表之前先清空表
-	create-drop 创建表，SessionFactory关闭时删除表
-	update 创建或更新表，没有表时创建表，有表时更新表
-	validate 验证表，只验证表的结构是否正确，不会创建表，可以更新
+* 自动创建或更新表        
+	create 创建表，创建表之前先清空表        
+	create-drop 创建表，SessionFactory关闭时删除表       
+	update 创建或更新表，没有表时创建表，有表时更新表         
+	validate 验证表，只验证表的结构是否正确，不会创建表，可以更新         
 * 显示、格式化sql语句
 * 绑定线程session
 * 配置二级缓存
