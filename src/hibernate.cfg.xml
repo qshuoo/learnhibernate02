@@ -21,9 +21,9 @@
 		
 		
 		<!-- 显示sql语句 -->
-		<!-- <property name="hibernate.show_sql">true</property> -->
+		<property name="hibernate.show_sql">true</property>
 		<!-- 格式化sql语句 -->
-		<!-- <property name="hibernate.format_sql">true</property> -->
+		<property name="hibernate.format_sql">true</property>
 		
 		
 		<!-- 调用getCurrentSession()必须有的配置，给当前线程绑定一个session -->
@@ -31,5 +31,6 @@
 		
 		
 		<!-- 添加映射路径 -->
+		<mapping resource="com/qshuoo/pojo/User.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>
