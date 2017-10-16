@@ -2,6 +2,7 @@ package com.qshuoo.test.query;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 import org.junit.After;
 import org.junit.Before;
@@ -34,16 +35,16 @@ public class TestSQLQuery {
 		System.out.println(query.uniqueResult());
 	}
 	
-/*	@Test
+	@Test
 	public void testByCondition02() {
 		String sql = "select name from user where id = ?";
-		Query<String> query = session.createNativeQuery(sql, String.class);
-		
-		query.setParameter(1, 3);
-		System.out.println(query.uniqueResult());
+//		Query<String> query = session.createNativeQuery(sql, String.class);
+		NativeQuery<User> query2 = session.createNativeQuery(sql,User.class);
+		query2.setParameter(1, 3);
+		System.out.println(query2.uniqueResult());
 //		System.out.println(query.getResultList());
 //		System.out.println(query.uniqueResult());
-	}*/
+	}
 	
 	@Test
 	public void testLimitQuery() {

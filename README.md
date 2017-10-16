@@ -103,23 +103,43 @@
 * 生成Path(得到类中需要查询的属性) root.get()
 * 生成Predicate(得到查询条件) 
 
-	gt() 大于
-	lt() 小于
-	ge()  大于等于
-	le() 小于等于
-	equal() 等于
-	notEqual() 不等于
-	in()    在   范围内
-	between  A  and    B    输出A和B之间的内容，包括A 和B
-	like() 模糊匹配
-	notLike() 模糊匹配不上的内容
-	isNull()
-	isNotNull()
-	and
-	or
+	gt() 大于        
+	lt() 小于       
+	ge()  大于等于   
+	le() 小于等于     
+	equal() 等于    
+	notEqual() 不等于     
+	in()    在   范围内     
+	between  A  and    B    输出A和B之间的内容，包括A 和B     
+	like() 模糊匹配    
+	notLike() 模糊匹配不上的内容    
+	isNull()    
+	isNotNull()    
+	and   
+	or    
 	
 * 选择查询的列criteiaQuery.select(path)	
 * 通过条件查询criteriaQuery.where()
 * session.createQuery(criteriaQuery)
 
 
+## 缓存策略
+### 一级缓存
+`session级别的缓存`
+* hibernate内置的缓存，不能解除
+* 声明周期依赖于session的生命周期
+* save(),update(),saveOrUpdate(),增加或更新数据库，将改变的数据添加至缓存中
+* get(),load()第一次查询对象时，将查询的对象添加至缓存中
+* evit()将指定的持久化对象从缓存中清除
+* clear()清除缓存，释放资源 
+
+### 二级缓存
+`SessionFactory级别的缓存`
+* 使用第三方插件，可插拔
+* 被应用范围内的所有缓存共享，依赖于应用的生命周期
+
+#### 过程
+* 添加第三方jar包
+* 配置hibernate.cfg.xml中添加二级缓存设置
+* 编写ehcache.xml
+* 在实体类映射文件中添加缓存设置 

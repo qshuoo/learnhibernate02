@@ -29,6 +29,14 @@
 		<!-- 调用getCurrentSession()必须有的配置，给当前线程绑定一个session -->
 		<property name="current_session_context_class">thread</property>
 		
+		<!-- 配置二级缓存 -->
+        <!-- 开启二级缓存 -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <!-- 查询二级缓存 -->
+        <property name="hibernate.cache.use_query_cache">true</property>
+        <!-- 指定二级缓存方式 -->
+        <property name="hibernate.cache.region.factory_class">
+         org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
 		
 		<!-- 添加映射路径 -->
 		<mapping resource="com/qshuoo/pojo/User.hbm.xml"/>

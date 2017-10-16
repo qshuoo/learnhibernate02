@@ -6,6 +6,7 @@
 
 <hibernate-mapping package="com.qshuoo.pojo">
 	<class name="User" table="user">
+	<cache usage="read-only"/>	
 		<id name="id">
 			<generator class="native"></generator>
 		</id>
